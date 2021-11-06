@@ -1,0 +1,32 @@
+.movieRow {
+  margin-bottom: 30px;
+}
+
+.movieRowTitle {
+  margin: 0px 0px 0px 30px;
+}
+
+.movieRowListContainer {
+  overflow-x: hidden;
+  padding-left: 30px;
+}
+
+.movieRowList {
+  width: 999999px;
+}
+
+.movieRowListItem {
+  display: inline-block; 
+  width: 150px;
+  cursor: pointer;
+}
+
+.movieRowListItem img {
+  width: 100%;
+  transform: scale(0.9);
+  transition: all ease 0.2s;
+}
+
+.movieRowListItem img:hover {
+  transform: scale(1);
+}
