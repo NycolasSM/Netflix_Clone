@@ -1,0 +1,26 @@
+.signInFormContainer {
+  display: flex;
+  justify-content: center;
+  width: 50%;
+}
+
+.signInForm {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 90%;
+  gap: 10px;
+}
+
+.signInForm input {
+  padding: 10px;
+  width: 100%;
+}
+
+.signInForm button {
+  margin-top: 10px;
+  padding: 10px;
+  width: 70%;
+}

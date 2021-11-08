@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import './App.css'
+import './MoviePage.css'
 import { GetMovieInfo, GetMoviesList } from '../../../backend/Tmdb.js'
 
 import MovieRowList from './components/MovieRowList/MovieRowList.jsx';

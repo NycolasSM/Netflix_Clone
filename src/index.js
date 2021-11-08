@@ -1,11 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './frontend/pages/Movies/App.jsx';
+import MoviePage from './frontend/pages/Movies/MoviesPage.jsx'
+
+// TESTE
+import Login from './frontend/pages/Login/LoginAndSignInForm'
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Login />
   </React.StrictMode>,
   document.getElementById('root')
 );

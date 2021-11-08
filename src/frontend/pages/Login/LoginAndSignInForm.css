@@ -1,0 +1,14 @@
+.loginAndSignInForm {
+  /* padding: 30px; */
+  border: solid 2px rgba(255, 0, 0, 0.425);
+  margin: 0 auto;
+  display: flex;
+  height: 500px;
+  width: 600px;
+  justify-content: space-evenly;
+}
+
+.loginAndSignInFormVerticalLine {
+  border: solid 1px white;
+  height: 100%;
+}
