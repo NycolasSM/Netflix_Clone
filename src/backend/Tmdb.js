@@ -23,7 +23,7 @@ export const GetMoviesList = async () => {
     {
       reference: 'originalsNetflix',
       title: 'Originais da Netflix',
-      items: await baseFetch(`/discover/tv?with_network=213&language=pt-BR&api_key=${API_KEY}`)
+      items: await baseFetch(`/discover/tv?with_networks=213&language=pt-BR&api_key=${API_KEY}`)
     },
     {
       reference: 'trending',

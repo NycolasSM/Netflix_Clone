@@ -1,3 +1,121 @@
 .featured {
   height: 100vh;
 }
+
+.featuredGradientVertical {
+  width: inherit;
+  height: inherit;
+  background: linear-gradient(to top, #111 10%, transparent 90%);
+}
+
+.featuredGradientHorizontal {
+  width: inherit;
+  height: inherit;
+  background: linear-gradient(to right , #111 30%, transparent 70%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 30px;
+  padding-bottom: 150px;
+  padding-top: 70px;
+}
+
+.featuredName {
+  font-size: 60px;
+  font-weight: bold;
+}
+
+.featuredInfo {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 15px
+}
+
+.featuredRate, .featuredYear, .featuredSeasons {
+  display: inline-block;
+  margin-right: 15px;
+}
+
+.featuredRate {
+  color: #46d369;
+}
+
+.featuredDescription {
+  margin-top: 15px;
+  font-size: 20px;
+  color: #999;
+  max-width: 40%;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+}
+
+.featuredButtons {
+  margin-top: 15px;
+}
+
+.featuredWatchButton, .featuredAddToListButton {
+  display: inline-block;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 14px 25px;
+  border-radius: 5px;
+  text-decoration: none;
+  margin-right: 10px;
+  border: none;
+  opacity: 1;
+  transition: all ease 0.2s;
+  cursor: pointer;
+}
+
+.featuredWatchButton:hover, .featuredAddToListButton:hover {
+  opacity: 0.75;
+}
+
+.featuredWatchButton {
+  background-color: #FFF;
+  color: #000;
+}
+
+.featuredAddToListButton {
+  background-color: #333;
+  color: #FFF;
+}
+
+.featuredGenres {
+  margin-top: 15px;
+  font-size: 18px;
+  color: #999;
+}
+
+@media (max-width:760px) {
+
+  .featured {
+    height: 90vh;
+  }
+
+  .featuredName {
+    font-size: 40px;
+  }
+
+  .featuredInfo {
+    font-size: 16px;
+  }
+
+  .featuredDescription {
+    font-size: 14px;
+    max-width: 100%;
+    margin-right: 30px;
+  }
+
+  .featuredWatchButton, .featuredAddToListButton {
+    font-size: 16px;
+  }
+
+  .featuredGenres {
+    font-size: 14px;
+  }
+}

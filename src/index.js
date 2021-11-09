@@ -8,7 +8,7 @@ import Login from './frontend/pages/Login/LoginAndSignInForm'
 
 ReactDOM.render(
   <React.StrictMode>
-    <Login />
+    <MoviePage />
   </React.StrictMode>,
   document.getElementById('root')
 );

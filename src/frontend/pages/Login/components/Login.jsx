@@ -8,6 +8,8 @@ const Login = () => {
     password: "",
   })
 
+  // não terminado
+
 
   useEffect(() => {
     // axios.get('http://localhost:3001/users/')
@@ -45,7 +47,7 @@ const Login = () => {
           onChange={formChange}
         />
         <button type="submit" >
-          Registrar
+          Logar
         </button>
       </form>
     </div>
