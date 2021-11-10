@@ -4,16 +4,18 @@
 
 .movieRowTitle {
   margin: 0px 0px 0px 30px;
+  font-size: 32px;
 }
 
 .movieRowListContainer {
   overflow-x: hidden;
   padding-left: 30px;
+  margin-top: 4px;
 }
 
 .movieRowListItem {
   display: inline-block; 
-  width: 150px;
+  width: 200px;
   cursor: pointer;
 }
 
@@ -28,13 +30,14 @@
 }
 
 .movieRowList {
-  transition: all ease 0.5s;
+  transition: all ease 0.8s;
 }
 
 .movieRowButtonLeft, .movieRowButtonRight {
   position: absolute;
-  width: 44px;
-  height: 225px;
+  border-radius: 3px;
+  width: 50px;
+  height: 308px;
   background-color: rgba(0, 0, 0, 0.6);
   z-index: 99;
   display: flex;

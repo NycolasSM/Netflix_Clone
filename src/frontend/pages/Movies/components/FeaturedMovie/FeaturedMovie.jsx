@@ -20,7 +20,7 @@ const FeaturedMovie = ({
     }}>
       <div className="featuredGradientVertical" >
         <div className="featuredGradientHorizontal">
-          <div className="featuredName">{item.original_name}</div>
+          <div className="featuredName">{item.name}</div>
           <div className="featuredInfo">
             <div className="featuredRate">Avaliação {item.vote_average}</div>
             <div className="featuredYear">{releaseDate.getFullYear()}</div>

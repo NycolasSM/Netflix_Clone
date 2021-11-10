@@ -11,7 +11,7 @@ const MovieRowList = ({
   const [scrollX, setScrollX] = useState(0)
 
   const handleLeftArrowList = () => {
-    let x = scrollX + Math.round(window.innerWidth / 2);
+    let x = scrollX + Math.round(window.innerWidth / 2 + 294);
     if(x > 0) {
       x = 0;
     }
@@ -19,13 +19,15 @@ const MovieRowList = ({
   }
 
   const handleRightArrowList = () => {
-    let x = scrollX - Math.round(window.innerWidth / 2);
-    let listWidth = movies.results.length * 150;
+    let x = scrollX - Math.round(window.innerWidth / 2 + 294);
+    let listWidth = movies.results.length * 200;
     if((window.innerWidth - listWidth) > x) {
-      x = window.innerWidth - listWidth - 60;
+      x = window.innerWidth - listWidth - 90;
     }
     setScrollX(x);
   }
+
+  console.log(movies)
 
 
   return (
@@ -41,7 +43,7 @@ const MovieRowList = ({
       <div className="movieRowListContainer">
         <div className="movieRowList" style={{
           marginLeft: scrollX,
-          width: movies.results.length * 150
+          width: movies.results.length * 200
         }}>
           {movies.results.length > 0 && movies.results.map((item, key) => (
             <div key={key} className="movieRowListItem">

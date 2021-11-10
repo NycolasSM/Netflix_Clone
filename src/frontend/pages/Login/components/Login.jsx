@@ -29,11 +29,11 @@ const Login = () => {
   return (
     <div className="loginFormContainer">
       <form className="loginForm">
-        <h2>Login</h2>
+        <h2 className="loginWindowTitle">Entrar</h2>
         <label htmlFor="signEmail"></label>
         <input
           type="text"
-          placeholder="digie o Email"
+          placeholder="Email"
           id="signEmail"
           name="email"
           onChange={formChange}
@@ -47,8 +47,15 @@ const Login = () => {
           onChange={formChange}
         />
         <button type="submit" >
-          Logar
+          Entrar
         </button>
+        <label className="rememberUserLabel" for="scales">Lembre-se de mim</label>
+        <input
+          className="rememberUserCheckBox"
+          type="checkbox"
+          id="scales"
+          name="scales">
+        </input>
       </form>
     </div>
   )

@@ -112,7 +112,7 @@ const SignIn = () => {
         <label htmlFor="signEmail"></label>
         <input
           type="text"
-          placeholder="digie o Email"
+          placeholder="Email"
           id="signEmail"
           name="email"
           onChange={formChange}
