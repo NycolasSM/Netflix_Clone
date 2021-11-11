@@ -1,32 +1,43 @@
 .movieRow {
-  margin-bottom: 30px;
+  margin-bottom: 100px;
 }
 
 .movieRowTitle {
-  margin: 0px 0px 0px 30px;
+  margin: 0px 0px 0px 40px;
   font-size: 32px;
 }
 
 .movieRowListContainer {
   overflow-x: hidden;
-  padding-left: 30px;
-  margin-top: 4px;
+  padding-left: 50px;
+  margin-top: 8px;
+  width: 100%;
 }
 
-.movieRowListItem {
+.movieRowListItemContainer {
   display: inline-block; 
   width: 200px;
+  height: 200px;
   cursor: pointer;
+  overflow-x: hidden;
+}
+
+.movieRowListItemContainer:hover > .movieRowListItem img {
+  transform: translate3d(0px, -20px, 5em);
+  transform: scale3d(1.12, 1.12, 1.12);
+}
+
+.movieRowListItemContainer:hover > .movieFocusInfo {
+  opacity: 1;
+  width: 210px;
+  height: 112px;
 }
 
 .movieRowListItem img {
-  width: 100%;
-  transform: scale(0.9);
-  transition: all ease 0.2s;
-}
-
-.movieRowListItem img:hover {
-  transform: scale(1);
+  width: 180px;
+  transform: translate3d(0);
+  transition: all ease 0.4s;
+  position: absolute;
 }
 
 .movieRowList {
@@ -37,9 +48,9 @@
   position: absolute;
   border-radius: 3px;
   width: 50px;
-  height: 308px;
+  height: 280px;
   background-color: rgba(0, 0, 0, 0.6);
-  z-index: 99;
+  z-index: 900;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -47,6 +58,74 @@
   cursor: pointer;
   opacity: 0;
   transition: all ease 0.48s;
+}
+
+.movieRowListItem img:hover ~ .movieFocusInfo{
+  opacity: 1;
+  width: 205px;
+  height: 130px;
+  visibility: visible;
+  transform: translate(-11px, 210px);
+}
+
+.movieFocusInfo:hover {
+  opacity: 1;
+  width: 205px;
+  height: 130px;
+  visibility: visible;
+  transform: translate(-11px, 210px);
+}
+
+.movieFocusInfo {
+  color: #acacac;
+  display: flex;
+  gap: 6px;
+  flex-direction: column;
+  justify-content: space-evenly;
+  position: absolute;
+  background-color: rgb(22, 22, 22);
+  box-shadow: 2px 13px 25px 8px rgba(0,0,0,0.54);
+  transform: translate(-11px, 200px);
+  z-index: 999;
+  width: 205px;
+  height: 100px;
+  opacity: 0;
+  transition: all ease 0.4s;
+  visibility: hidden;
+  cursor: initial;
+}
+
+.movieFocusInfoTitle {
+  width: 190px;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.movieFocusInfoButtons {
+  margin-top: 4px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  overflow-x: hidden;
+}
+
+.movieFocusInfoButtonPlay, .movieFocusInfoButtonRate, .movieFocusInfoButtonAddFavorite {
+  cursor: pointer;
+}
+
+.movieFocusInfoButtonPlay:hover, .movieFocusInfoButtonRate:hover, .movieFocusInfoButtonAddFavorite:hover {
+  filter: brightness(1.6);
+  transition: all ease 0.6s;
+}
+
+.movieFocusInfoRateAndYear {
+  display: flex;
+  justify-content: space-evenly;
+  padding-bottom: 3px;
 }
 
 .movieRowButtonLeft {

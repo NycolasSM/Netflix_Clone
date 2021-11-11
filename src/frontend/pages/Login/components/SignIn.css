@@ -1,17 +1,13 @@
 .signInFormContainer {
   display: flex;
-  justify-content: center;
-  width: 50%;
+  width: 75%;
 }
 
 .signInForm {
-  text-align: center;
+  text-align: left;
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
-  width: 90%;
-  gap: 10px;
+  width: 100%;
 }
 
 .signInForm input {
@@ -19,8 +15,29 @@
   width: 100%;
 }
 
+.signTitle {
+  font-size: 30px;
+  margin-top: 60px;
+  margin-bottom: 20px;
+}
+
 .signInForm button {
-  margin-top: 10px;
   padding: 10px;
-  width: 70%;
+  width: 100%;
+}
+
+.registerNow {
+  margin-top: 18px;
+  font-size: 15px;
+  color: #999;
+}
+
+.loginNow a {
+  color: white;
+  text-decoration: none;
+  margin-left: 4px;
+}
+
+.loginNow a:hover {
+  text-decoration: underline;
 }

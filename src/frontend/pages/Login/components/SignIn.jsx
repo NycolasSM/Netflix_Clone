@@ -1,8 +1,13 @@
 import React, { useState, useEffect } from 'react'
+// import { useHistory } from 'react-router'
 import axios from 'axios'
 import './SignIn.css'
 
-const SignIn = () => {
+const SignIn = ({
+  loginOrSiginChange
+}) => {
+
+  // precisa fazer a verificação no backend
 
 
   const [form, setForm] = useState({
@@ -11,6 +16,8 @@ const SignIn = () => {
     password: "",
     favoriteItens: []
   })
+
+  // const history = useHistory()
 
   const [users, setUsers] = useState([])
 
@@ -90,11 +97,16 @@ const SignIn = () => {
 
     if (passwordConfirm === true && userNameIsSet === true && emailIsSet === true && emailIsValid === true) {
       axios.post("http://localhost:3001/system/users/", form)
-        .then(() => window.location.reload())
         .catch(err => {
           console.log(err)
         })
+        .then(refreshPage())
+        .then(console.log('chegou aqui'))
     }
+  }
+
+  function refreshPage() {
+    window.location.reload(false);
   }
 
 
@@ -108,7 +120,7 @@ const SignIn = () => {
   return (
     <div className="signInFormContainer">
       <form className="signInForm" onSubmit={onSubmitForm}>
-        <h2>Se Cadastre</h2>
+        <h2 className="signTitle">Se Cadastre</h2>
         <label htmlFor="signEmail"></label>
         <input
           type="text"
@@ -144,6 +156,14 @@ const SignIn = () => {
         <button type="submit" >
           Registrar
         </button>
+        <div className="registerNow">
+          <span>Ja tem uma conta?</span>
+          <a onClick={() => loginOrSiginChange("Login")}>Entrar</a>
+        </div>
+        <div className="recaptchaInfo">
+          <span> Esta página é protegida pelo Google reCAPTCHA para garantir que você não é um robô.</span>
+          <a href="https://www.google.com/recaptcha/about/">Saiba mais.</a>
+        </div>
       </form>
     </div>
   )

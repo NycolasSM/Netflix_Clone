@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import MoviesPage from './frontend/pages/Movies/MoviesPage.jsx'
 
-// TESTE
 import Login from './frontend/pages/Login/LoginAndSignInForm'
+import SelectProfile from './frontend/pages/SelectProfile/SelectProfile'
 
 ReactDOM.render(
   <React.StrictMode>

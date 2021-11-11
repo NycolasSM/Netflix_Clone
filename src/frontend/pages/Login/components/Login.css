@@ -1,6 +1,5 @@
 .loginFormContainer {
   display: flex;
-  justify-content: center;
   width: 75%;
 }
 
@@ -11,11 +10,6 @@
   width: 100%;
 }
 
-.loginForm input {
-  padding: 10px;
-  width: 100%;
-}
-
 .loginForm button {
   padding: 10px;
   width: 100%;
@@ -23,15 +17,86 @@
 
 .loginWindowTitle {
   font-size: 30px;
+  margin-top: 60px;
 }
 
-.rememberUserCheckBox{
-  font-size: 20px;
-  display: inline-block;
+.rememberUserCheckBoxContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+  font-size: 13px;
+  color: #bbb;
+}
+
+.rememberUserCheckBoxContainer span {
+  cursor: pointer;
+}
+
+#rememberUserCheckbox {
+  height: 17px;
+  width: 17px;
+  margin: 0px;
+  background-color: #eee;
+  border-radius: 50%;
+  color: #333;
+  position: absolute;
+  filter: invert(100%) saturate(0);
+  cursor: pointer;
+}
+
+#rememberUserCheckbox:checked{
+  background-color: red;
 }
 
 .rememberUserLabel{
-  font-size: 20px;
-  display: inline;
-  
+  margin-left: 21px;
+  cursor: pointer;
+}
+
+.connectWithFacebook {
+  display: flex;
+  align-items: center;
+  margin-top: 30px;
+  gap: 10px;
+  font-size: 13px;
+  color: #999;
+  cursor: pointer;
+}
+
+.facebookLogo {
+  height: 18px;
+}
+
+.registerNow {
+  margin-top: 16px;
+  font-size: 15px;
+  color: #999;
+}
+
+.registerNow a {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+  margin-left: 4px;
+}
+
+.registerNow a:hover {
+  text-decoration: underline;
+}
+
+.recaptchaInfo {
+  margin-top: 16px;
+  font-size: 13px;
+  color: #999;
+}
+
+.recaptchaInfo a {
+  text-decoration: none;
+  color: #007bff;
+  margin-left: 4px;
+}
+
+.recaptchaInfo a:hover {
+  text-decoration: underline;
 }
