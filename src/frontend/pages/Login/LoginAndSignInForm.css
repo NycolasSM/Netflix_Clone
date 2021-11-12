@@ -11,18 +11,35 @@
 .backgroundLoginImg {
   z-index: -100;
   position: fixed;
-  height: 130vh;
   opacity: 0.8;
+  background-size: cover;
+}
+
+.loginWindowContainer {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .loginWindow {
   background: rgba(0, 0, 0, 0.75);
-  margin: 0 auto;
-  display: flex;
   height: 600px;
   width: 410px;
-  justify-content: center;
+  overflow: hidden;
   align-items: top;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loginWindowItems {
+  width: 1000px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  transition: all ease 0.5s;
 }
 
 .loginForm input, .signInForm input {
@@ -59,4 +76,12 @@
   position: absolute;
   top: 20px;
   left: 20px;
+}
+
+@media (max-width: 800px) {
+  .loginAndSignInForm a img {
+    top: 12px;
+    left: 12px;
+    height: 30px;
+  }
 }

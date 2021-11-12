@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-// import { useHistory } from 'react-router'
 import axios from 'axios'
 import './SignIn.css'
 
@@ -14,47 +13,24 @@ const SignIn = ({
     email: "",
     userName: "",
     password: "",
-    favoriteItens: []
+    favoriteItens: [],
+    profiles: [],
   })
-
-  // const history = useHistory()
-
-  const [users, setUsers] = useState([])
-
-  useEffect(() => {
-    axios.get('http://localhost:3001/system/users/')
-      .then(resp => {
-        setUsers(resp.data)
-      })
-  }, [])
 
   function onSubmitForm(event) {
     event.preventDefault();
 
-
-    let passwordConfirm = false
     let userNameIsSet = false
+    let passwordConfirm = false
     let emailIsSet = false
-    let emailIsValid = true
     let passwordIsSet = false
 
-    function verifyEmail() {
-      users.forEach(function (user) {
-        if (user.email === form.email) {
-          alert('email ja cadastrado')
-          emailIsValid = false
-        }
-      })
-    }
-
     function verifyIfUserIsSet() {
-      if (emailIsSet === true) {
-        if (form.name === "") {
-          alert("precisa inserir um nome")
-          userNameIsSet = false
-        } else {
-          userNameIsSet = true
-        }
+      if (form.name === "") {
+        alert("precisa inserir um nome")
+        userNameIsSet = false
+      } else {
+        userNameIsSet = true
       }
     }
 
@@ -89,19 +65,17 @@ const SignIn = ({
       }
     }
 
-    verifyEmail()
     verifyIfUserIsSet()
     verifyIfEmailIsSet()
     verifyIfPasswordIsSet()
     verifyPasswordEquals()
 
-    if (passwordConfirm === true && userNameIsSet === true && emailIsSet === true && emailIsValid === true) {
+    if (passwordConfirm === true && userNameIsSet === true && emailIsSet === true) {
       axios.post("http://localhost:3001/system/users/", form)
         .catch(err => {
           console.log(err)
         })
         .then(refreshPage())
-        .then(console.log('chegou aqui'))
     }
   }
 
@@ -158,7 +132,7 @@ const SignIn = ({
         </button>
         <div className="registerNow">
           <span>Ja tem uma conta?</span>
-          <a onClick={() => loginOrSiginChange("Login")}>Entrar</a>
+          <a onClick={() => loginOrSiginChange()}>Entrar</a>
         </div>
         <div className="recaptchaInfo">
           <span> Esta página é protegida pelo Google reCAPTCHA para garantir que você não é um robô.</span>

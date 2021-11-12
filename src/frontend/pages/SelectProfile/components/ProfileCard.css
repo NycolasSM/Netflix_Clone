@@ -11,8 +11,33 @@
   cursor: pointer;
 }
 
+.profileImg {
+  width: 9vw;
+  min-width: 80px;
+  max-width: 200px;
+  border-radius: 4px;
+}
+
 .profileCard:hover > img {
   outline: 2px solid white;
+}
+
+.editingProfile {
+  position: absolute;
+  width: 9.1vw;
+  height: 9.1vw;
+  background-size: cover;
+  transform: translateY(-15px) scale(1.05);
+  opacity: 0.8;
+  z-index: 999;
+}
+
+.editingProfile:hover {
+  opacity: 1;
+}
+
+.editingProfile:hover ~ img {
+  opacity: 0.6;
 }
 
 .profileCard:hover {
@@ -30,5 +55,9 @@
   .profileCard {
     font-size: 13px;
     margin: 8px;
+  }
+  .editingProfile {
+    width: 80px;
+    height: 80px;
   }
 }

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import './MovieRowList.css'
+
 import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import PlayArrow from '@material-ui/icons/PlayArrow'

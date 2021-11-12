@@ -1,6 +1,7 @@
 .loginFormContainer {
-  display: flex;
-  width: 75%;
+  width: 400px;
+  height: 100%;
+  padding: 0px 40px;
 }
 
 .loginForm {

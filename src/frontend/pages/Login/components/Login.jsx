@@ -65,7 +65,7 @@ const Login = ({
         </div>
         <div className="registerNow">
           <span>Novo por aqui?</span>
-          <a onClick={() => loginOrSiginChange("Sign")}>Assine agora</a>
+          <a onClick={() => loginOrSiginChange()}>Assine agora</a>
         </div>
         <div className="recaptchaInfo">
           <span> Esta página é protegida pelo Google reCAPTCHA para garantir que você não é um robô.</span>
