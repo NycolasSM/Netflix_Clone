@@ -11,16 +11,16 @@ const SelectProfile = () => {
   const [isEditingProfile, setIsEditingProfile] = useState(false)
   const [user, setUser] = useState([])
 
-  useEffect(() => {
-    setShowElmentAnim("ShowAnim")
-
-  }, [])
 
   useEffect(() => {
     axios.get("http://localhost:3001/system/users/618eb6e669a967772623b17b")
-      .then(resp => setUser(resp.data))
-      .then(console.log(user))
-      .then(console.log(user))
+      .then(resp => setUser(resp.data.profiles))
+  }, [])
+
+
+  useEffect(() => {
+    setShowElmentAnim("ShowAnim")
+
   }, [])
 
 
@@ -38,13 +38,20 @@ const SelectProfile = () => {
         <div className="profileCardsListContainer">
           <div className="selectProfileTitle" >{isSelectingProfileForEdit === true ? "Qual perfil deseja editar?" : "Quem esta assistindo?"}</div>
           <div className="profileCardsList">
+            {user.map((item, key) => (
+              <ProfileCard key={key} profileName={item.name} img={item.img} isEditing={isSelectingProfileForEdit} />
+            ))}
+
+
+            {/* <ProfileCard img="https://pbs.twimg.com/profile_images/1240119990411550720/hBEe3tdn_400x400.png" profileName="Teste" isEditing={isSelectingProfileForEdit} />
             <ProfileCard img="https://pbs.twimg.com/profile_images/1240119990411550720/hBEe3tdn_400x400.png" profileName="Teste" isEditing={isSelectingProfileForEdit} />
             <ProfileCard img="https://pbs.twimg.com/profile_images/1240119990411550720/hBEe3tdn_400x400.png" profileName="Teste" isEditing={isSelectingProfileForEdit} />
             <ProfileCard img="https://pbs.twimg.com/profile_images/1240119990411550720/hBEe3tdn_400x400.png" profileName="Teste" isEditing={isSelectingProfileForEdit} />
-            <ProfileCard img="https://pbs.twimg.com/profile_images/1240119990411550720/hBEe3tdn_400x400.png" profileName="Teste" isEditing={isSelectingProfileForEdit} />
-            <ProfileCard img="https://pbs.twimg.com/profile_images/1240119990411550720/hBEe3tdn_400x400.png" profileName="Teste" isEditing={isSelectingProfileForEdit} />
+            <ProfileCard img="https://pbs.twimg.com/profile_images/1240119990411550720/hBEe3tdn_400x400.png" profileName="Teste" isEditing={isSelectingProfileForEdit} /> */}
+
+
           </div>
-          {isSelectingProfileForEdit === true ? manageButtomOn : manageButtomOff}
+          {user.length === 0 ? ifDontHaveProfile : isSelectingProfileForEdit === true ? manageButtomOn : manageButtomOff }
         </div>
       </div>
     </section>
