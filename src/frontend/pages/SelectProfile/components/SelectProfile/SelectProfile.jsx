@@ -2,9 +2,11 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import './SelectProfile.css'
 
-import ProfileCard from './ProfileCard'
+import ProfileCard from '../ProfileCard/ProfileCard'
 
-const SelectProfile = () => {
+const SelectProfile = ({
+  manageOption
+}) => {
   const [showElementAnim, setShowElmentAnim] = useState("")
   const [isSelectingProfileForEdit, setIsSelectingProfileForEdit] = useState(false)
   const [user, setUser] = useState([])
@@ -21,6 +23,10 @@ const SelectProfile = () => {
 
   }, [])
 
+  const setManageOption = (option) => {
+    manageOption(option)
+  }
+
 
   // Manage profile buttom
   const DontHaveProfiles = <div className="manageProfiles" onClick={() => setIsSelectingProfileForEdit(true)}>Criar Primeiro Usário</div>
@@ -34,7 +40,7 @@ const SelectProfile = () => {
           <div className="selectProfileTitle" >{isSelectingProfileForEdit === true ? "Qual perfil deseja editar?" : "Quem esta assistindo?"}</div>
           <div className="profileCardsList">
             {user.map((item, key) => (
-              <ProfileCard key={key} profileName={item.name} img={item.img} isEditing={isSelectingProfileForEdit} />
+              <ProfileCard key={key} profileName={item.name} img={item.img} isEditing={isSelectingProfileForEdit} manageOption={setManageOption}/>
             ))}
           </div>
           {user.length === 0 ? DontHaveProfiles : isSelectingProfileForEdit === true ? manageButtomOn : manageButtomOff}

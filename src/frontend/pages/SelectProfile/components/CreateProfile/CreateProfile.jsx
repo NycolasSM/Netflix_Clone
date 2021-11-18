@@ -1,9 +1,12 @@
 import React, { useState } from 'react'
-import './EditProfile.css'
+import './CreateProfile.css'
 
-const EditProfile = ({
+import Edit from '@material-ui/icons/Edit'
+
+const CreateProfile = ({
   profileName,
-  profileImg
+  profileImg,
+  manageOption
 }) => {
 
   console.log(profileImg)
@@ -26,32 +29,30 @@ const EditProfile = ({
   const defaultIcon = "https://pbs.twimg.com/profile_images/1240119990411550720/hBEe3tdn_400x400.png"
 
   return (
-    <section className="editProfile">
-      <div className="editProfileContainer">
-        <h2 className="editProfileTitle">Editar Perfil</h2>
-        <img className="editProfileIcon" src={profileImg === undefined ? defaultIcon : profileImg} alt="ProfileImg" />
-        <label htmlFor="ProfileName"></label>
+    <section className="createProfile">
+      <div className="createProfileContainer">
+        <h2 className="createProfileTitle">Criar Perfil</h2>
+        <img className="createProfileIcon" src={profileImg === undefined ? defaultIcon : profileImg} alt="ProfileImg"></img>
+        <Edit className="createIcon"/>
         <input
-          className="editProfileName"
+          className="createProfileName"
           type="text"
           value={profileName}
           placeholder="Nome Do Usuário"
         />
-        <button className="editProfileButton">
+        <hr className="createProfileDivisorLine" />
+        <button className="createProfileButtonSave">
           Salvar
         </button>
-        <button className="editProfileButton">
+        <button className="createProfileButtonCancel" onClick={() => manageOption("selectProfile")}>
           Cancelar
-        </button>
-        <button className="editProfileButton">
-          Excluir Perfil
         </button>
       </div>
     </section>
   )
 }
 
-export default EditProfile
+export default CreateProfile
 
 
 //db.users.find({_id: ObjectId("618eb6e669a967772623b17b")}).pretty()

@@ -1,0 +1,97 @@
+.createProfile {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.createProfileTitle {
+  font-size: 50px;
+  font-weight: lighter;
+  margin-bottom: 80px;
+  grid-area: createTitle;
+}
+
+.createProfileDivisorLine {
+  background-color: #999;
+  border-color: #999;
+  width: 100%;
+  grid-area: divisor;
+  margin-top: 40px;
+}
+
+.createProfileContainer {
+  width: 700px;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: 29% 35%;
+  grid-template-rows: 40px 40px 40px 28px;
+  grid-template-areas:
+  'createTitle createTitle '
+  'icon profileName '
+  'icon profileName '
+  'divisor divisor '
+  'buttonSave buttonCancel ';
+
+  column-gap: 0px;
+  row-gap: 28px;
+}
+
+.createProfileIcon {
+  justify-self: center;
+  grid-area: icon;
+  width: 100px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.createIcon {
+  position: absolute;
+  margin-left: 250px;
+  margin-top: -6px;
+  color: #eee;
+  border: solid 1px #eee;
+  border-radius: 50%;
+  padding: 4px;
+  background-color: #111;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.createProfileName {
+  grid-area: profileName;
+  height: 40px;
+  padding: 10px;
+  font-size: 15px;
+  border-radius: 4px;
+  border: none
+}
+
+.createProfileButtonSave, .createProfileButtonCancel, .createProfileButtonDelete {
+  padding: 10px;
+  width: 140px;
+  background-color: #111;
+  font-size: 18px;
+  font-weight: normal;
+  color: #999;
+  border: solid 1px white;
+  justify-self: center;
+  transition: all ease 0.2s;
+}
+
+.createProfileButtonSave:hover, .createProfileButtonCancel:hover, .createProfileButtonDelete:hover { 
+  background-color: #eee;
+  color: black;
+  cursor: pointer;
+}
+
+.createProfileButtonSave {
+  grid-area: buttonSave;
+}
+
+.createProfileButtonCancel {
+  grid-area: buttonCancel;
+}

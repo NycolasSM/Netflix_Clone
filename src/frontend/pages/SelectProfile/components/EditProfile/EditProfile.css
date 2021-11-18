@@ -1,0 +1,101 @@
+.editProfile {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.editProfileTitle {
+  font-size: 50px;
+  font-weight: lighter;
+  margin-bottom: 80px;
+  grid-area: editTitle;
+}
+
+.editProfileDivisorLine {
+  background-color: #999;
+  border-color: #999;
+  width: 100%;
+  grid-area: divisor;
+  margin-top: 40px;
+}
+
+.editProfileContainer {
+  width: 700px;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: 22% 22% 22%;
+  grid-template-rows: 40px 40px 40px 28px;
+  grid-template-areas:
+  'editTitle editTitle editTitle'
+  'icon profileName profileName'
+  'icon profileName profileName'
+  'divisor divisor divisor'
+  'buttonSave buttonCancel buttonDelete';
+
+  column-gap: 10px;
+  row-gap: 30px;
+}
+
+.editProfileIcon {
+  justify-self: center;
+  grid-area: icon;
+  width: 100px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.editIcon {
+  position: absolute;
+  margin-left: 208px;
+  margin-top: -8px;
+  color: #eee;
+  border: solid 1px #eee;
+  border-radius: 50%;
+  padding: 4px;
+  background-color: #111;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.editProfileName {
+  grid-area: profileName;
+  height: 40px;
+  padding: 10px;
+  font-size: 15px;
+  border-radius: 4px;
+  border: none
+}
+
+.editProfileButtonSave, .editProfileButtonCancel, .editProfileButtonDelete {
+  padding: 10px;
+  width: 140px;
+  background-color: #111;
+  font-size: 18px;
+  font-weight: normal;
+  color: #999;
+  border: solid 1px white;
+  justify-self: center;
+  transition: all ease 0.2s;
+}
+
+.editProfileButtonSave:hover, .editProfileButtonCancel:hover, .editProfileButtonDelete:hover { 
+  background-color: #eee;
+  color: black;
+  cursor: pointer;
+}
+
+.editProfileButtonSave {
+  grid-area: buttonSave;
+}
+
+.editProfileButtonCancel {
+  grid-area: buttonCancel;
+}
+
+.editProfileButtonDelete {
+  grid-area: buttonDelete;
+}
