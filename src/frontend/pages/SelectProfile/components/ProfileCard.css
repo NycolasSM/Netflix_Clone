@@ -11,13 +11,6 @@
   cursor: pointer;
 }
 
-.profileImg {
-  width: 9vw;
-  min-width: 80px;
-  max-width: 200px;
-  border-radius: 4px;
-}
-
 .profileCard:hover > img {
   outline: 2px solid white;
 }

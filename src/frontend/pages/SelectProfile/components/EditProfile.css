@@ -1,0 +1,45 @@
+.editProfile {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.editProfile img {
+  width: 9vw;
+  min-width: 80px;
+  max-width: 200px;
+  border-radius: 4px;
+}
+
+.editProfileTitle {
+  font-size: 50px;
+}
+
+.editProfileContainer {
+  width: 50%;
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  grid-template-rows: 40px 40px 40px;
+  grid-template-areas:
+    'profileIcon profileName profileName'
+    'profileIcon profileName profileName'
+    'editButton editButton editButton' 
+  ;
+
+  column-gap: 3px;
+  row-gap: 3px;
+}
+
+.editProfileIcon {
+  grid-area: 'profileIcon';
+}
+
+.editProfileName {
+  grid-area: 'profileName';
+}
+
+.editProfileButton {
+  grid-area: 'editButton'
+}

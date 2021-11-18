@@ -1,0 +1,7 @@
+.selectProfileNetflixLogo{
+  height: 28px;
+  filter: brightness(1.1);
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
