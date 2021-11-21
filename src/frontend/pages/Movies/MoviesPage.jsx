@@ -30,6 +30,8 @@ const App = () => {
     loadAll();
   }, []);
 
+  console.log(moviesList)
+
   useEffect(() => {
     const scrollListener = () => {
       if (window.scrollY > 30) {

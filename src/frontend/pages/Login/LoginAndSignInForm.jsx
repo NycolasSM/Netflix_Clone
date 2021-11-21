@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './LoginAndSignInForm.css'
 
 import Login from './components/Login.jsx'
@@ -8,11 +8,11 @@ const LoginAndSiginInForm = () => {
 
   const [changeFormAnimValue, setChangeFormAnimValue] = useState(200)
 
-  const setLogin = () => {
+  const setOptionLogin = () => {
     setChangeFormAnimValue(200)
   }
 
-  const setSign = () => {
+  const setOptionSign = () => {
     setChangeFormAnimValue(-200)
   }
 
@@ -25,8 +25,8 @@ const LoginAndSiginInForm = () => {
       <div className="loginWindowContainer">
         <section className="loginWindow">
           <div className="loginWindowItems" style={{ transform: `translateX(${changeFormAnimValue}px)` }} >
-            <Login loginOrSiginChange={setSign} />
-            <SignIn loginOrSiginChange={setLogin} />
+            <Login loginOrSiginChange={setOptionSign} />
+            <SignIn loginOrSiginChange={setOptionLogin} />
           </div>
         </section>
       </div>

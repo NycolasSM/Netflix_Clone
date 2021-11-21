@@ -9,15 +9,15 @@ const CreateProfile = ({
   manageOption
 }) => {
 
-  console.log(profileImg)
-
   const [form, setForm] = useState({
     name: "",
     img: ""
   })
 
-  function onSubmitForm(event) {
-    event.preventDefault();
+  function saveProfile() {
+    // event.preventDefault();
+    // setForm({ name: "", img: ""})
+    console.log(form)
   }
 
   function formChange(event) {
@@ -32,16 +32,18 @@ const CreateProfile = ({
     <section className="createProfile">
       <div className="createProfileContainer">
         <h2 className="createProfileTitle">Criar Perfil</h2>
-        <img className="createProfileIcon" src={profileImg === undefined ? defaultIcon : profileImg} alt="ProfileImg"></img>
+        <img className="createProfileIcon" src={profileImg === undefined ? defaultIcon : profileImg} alt="ProfileImg" value={defaultIcon} name="img" onChange={formChange}></img>
         <Edit className="createIcon"/>
         <input
           className="createProfileName"
           type="text"
+          name="name"
           value={profileName}
           placeholder="Nome Do Usuário"
+          onChange={formChange}
         />
         <hr className="createProfileDivisorLine" />
-        <button className="createProfileButtonSave">
+        <button className="createProfileButtonSave" onClick={() => saveProfile()}>
           Salvar
         </button>
         <button className="createProfileButtonCancel" onClick={() => manageOption("selectProfile")}>

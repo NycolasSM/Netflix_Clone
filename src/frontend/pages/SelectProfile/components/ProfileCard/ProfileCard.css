@@ -20,7 +20,10 @@
   width: 9.1vw;
   height: 9.1vw;
   background-size: cover;
-  transform: translateY(-15px) scale(1.05);
+  transform: translateY(-13px);
+  min-width: 80px;
+  max-width: 200px;
+  border-radius: 4px;
   opacity: 0.8;
   z-index: 999;
 }
@@ -52,5 +55,11 @@
   .editingProfile {
     width: 80px;
     height: 80px;
+  }
+}
+
+@media (min-width:1400px) {
+  .editingProfile {
+    transform: translateY(-19px);
   }
 }

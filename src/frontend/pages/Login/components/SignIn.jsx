@@ -18,7 +18,7 @@ const SignIn = ({
   })
 
   function onSubmitForm(event) {
-    event.preventDefault();
+    // event.preventDefault();
 
     let userNameIsSet = false
     let passwordConfirm = false
@@ -113,7 +113,7 @@ const SignIn = ({
         />
         <label htmlFor="password"></label>
         <input
-          type="text"
+          type="password"
           placeholder="Senha"
           id="password"
           name="password"
@@ -121,7 +121,7 @@ const SignIn = ({
         />
         <label htmlFor="confirmPassword"></label>
         <input
-          type="text"
+          type="password"
           placeholder="Confirme sua Senha"
           id="confirmPassword"
           name="confirmPassword"

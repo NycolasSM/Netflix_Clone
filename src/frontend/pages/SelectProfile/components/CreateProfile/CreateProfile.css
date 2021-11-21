@@ -95,3 +95,43 @@
 .createProfileButtonCancel {
   grid-area: buttonCancel;
 }
+
+@media (min-width:1400px) {
+  .createProfileTitle {
+    font-size: 80px;
+    margin-top: 10px;
+  }
+  .createProfileContainer {
+    width: 800px;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: 29% 34%;
+    grid-template-rows: 50px 50px 50px 28px;
+    grid-template-areas:
+    'createTitle createTitle '
+    'icon profileName '
+    'icon profileName '
+    'divisor divisor '
+    'buttonSave buttonCancel ';
+  
+    column-gap: 0px;
+    row-gap: 28px;
+  }
+  .createProfileIcon {
+    width: 120px;
+  }
+  .createIcon {
+    position: absolute;
+    margin-left: 297px;
+    margin-top: 7px;
+  }
+  .createProfileName {
+    grid-area: profileName;
+    height: 40px;
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 4px;
+    border: none
+  }
+}

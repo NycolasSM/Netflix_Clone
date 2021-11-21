@@ -3,12 +3,15 @@ import ReactDOM from 'react-dom';
 import './index.css';
 
 import Login from './frontend/pages/Login/LoginAndSignInForm'
-import SelectProfile from './frontend/pages/SelectProfile/SelectProfilePage'
+import SelectProfile from './frontend/pages/SelectProfile/ProfilesPage'
 import MoviesPage from './frontend/pages/Movies/MoviesPage.jsx'
+import { UserInfoProvider } from './frontend/providers/userInfo';
 
 ReactDOM.render(
   <React.StrictMode>
-    <SelectProfile />
+    <UserInfoProvider>
+      <SelectProfile />
+    </UserInfoProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

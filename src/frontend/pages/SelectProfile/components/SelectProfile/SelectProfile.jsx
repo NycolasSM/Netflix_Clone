@@ -1,30 +1,36 @@
 import React, { useEffect, useState } from 'react'
-import axios from 'axios'
 import './SelectProfile.css'
 
 import ProfileCard from '../ProfileCard/ProfileCard'
 
+import { useUserInfo } from '../../../../providers/userInfo'
+
 const SelectProfile = ({
-  manageOption
+  manageOption,
+  editProfileInfo,
+  profileSelectedInfo
 }) => {
+
+  const { user, setUser } = useUserInfo();
+
   const [showElementAnim, setShowElmentAnim] = useState("")
   const [isSelectingProfileForEdit, setIsSelectingProfileForEdit] = useState(false)
-  const [user, setUser] = useState([])
-
-
-  useEffect(() => {
-    axios.get("http://localhost:3001/system/users/618eb6e669a967772623b17b")
-      .then(resp => setUser(resp.data.profiles))
-  }, [])
-
 
   useEffect(() => {
     setShowElmentAnim("ShowAnim")
-
   }, [])
 
   const setManageOption = (option) => {
     manageOption(option)
+  }
+
+  const selectedProfile = (profileSelected) => {
+    profileSelectedInfo(profileSelected.profileName, profileSelected.img)
+  }
+
+  const editProfile = (profileSelected) => {
+    editProfileInfo(profileSelected.profileName, profileSelected.img)
+    manageOption("editProfile")
   }
 
 
@@ -39,11 +45,12 @@ const SelectProfile = ({
         <div className="profileCardsListContainer">
           <div className="selectProfileTitle" >{isSelectingProfileForEdit === true ? "Qual perfil deseja editar?" : "Quem esta assistindo?"}</div>
           <div className="profileCardsList">
-            {user.map((item, key) => (
-              <ProfileCard key={key} profileName={item.name} img={item.img} isEditing={isSelectingProfileForEdit} manageOption={setManageOption}/>
+            {user.profiles.map((item, key) => (
+              <ProfileCard key={key} profileName={item.name} img={item.img} isEditing={isSelectingProfileForEdit} manageOption={setManageOption} selectedProfile={selectedProfile} editProfile={editProfile}/>
             ))}
+            {user.profiles.length < 5 ? <ProfileCard profileName={"Criar Novo Usuario"} img={"createNewProfile"} manageOption={setManageOption} /> : "" }
           </div>
-          {user.length === 0 ? DontHaveProfiles : isSelectingProfileForEdit === true ? manageButtomOn : manageButtomOff}
+          {user.profiles.length === 0 ? DontHaveProfiles : isSelectingProfileForEdit === true ? manageButtomOn : manageButtomOff}
         </div>
       </div>
     </section>

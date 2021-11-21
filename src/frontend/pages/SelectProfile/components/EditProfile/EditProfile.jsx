@@ -9,8 +9,6 @@ const EditProfile = ({
   manageOption
 }) => {
 
-  console.log(profileImg)
-
   const [form, setForm] = useState({
     name: "",
     img: ""
@@ -37,7 +35,7 @@ const EditProfile = ({
         <input
           className="editProfileName"
           type="text"
-          value={profileName}
+          defaultValue={profileName}
           placeholder="Nome Do Usuário"
         />
         <hr className="editProfileDivisorLine" />

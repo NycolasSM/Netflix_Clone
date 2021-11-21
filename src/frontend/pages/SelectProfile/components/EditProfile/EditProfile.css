@@ -99,3 +99,43 @@
 .editProfileButtonDelete {
   grid-area: buttonDelete;
 }
+
+@media (min-width:1400px) {
+  .editProfileTitle {
+    font-size: 80px;
+    margin-top: 10px;
+  }
+  .editProfileContainer {
+    width: 760px;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: 22% 22% 22%;
+    grid-template-rows: 40px 40px 40px 28px;
+    grid-template-areas:
+    'editTitle editTitle editTitle'
+    'icon profileName profileName'
+    'icon profileName profileName'
+    'divisor divisor divisor'
+    'buttonSave buttonCancel buttonDelete';
+  
+    column-gap: 10px;
+    row-gap: 30px;
+  }
+  .editProfileIcon {
+    width: 120px;
+  }
+  .editIcon {
+    position: absolute;
+    margin-left: 236px;
+    margin-top: 0px;
+  }
+  .editProfileName {
+    grid-area: profileName;
+    height: 40px;
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 4px;
+    border: none
+  }
+}
