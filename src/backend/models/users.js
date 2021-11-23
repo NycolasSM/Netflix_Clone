@@ -22,9 +22,9 @@ const UserSchema = new mongoose.Schema({
     maxlength: 50,
     select: false,
   },
-  favoriteItens: {
-    type: Array
-  },
+  favoriteItens: [
+    String
+  ],
   profiles: {
     type: Array
   },

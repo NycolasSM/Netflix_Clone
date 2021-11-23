@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react'
+
+import axios from 'axios'
 import './Login.css'
 
 const Login = ({
@@ -7,19 +9,30 @@ const Login = ({
 
   const [form, setForm] = useState({
     email: "",
-    password: "",
+    password: ""
   })
 
+  const [user, setUser] = useState()
 
-  useEffect(() => {
-    // axios.get('http://localhost:3001/users/')
-    // .then(resp => {
-    // setUsers(resp.data)
-    // })
-  }, [])
+  const [loginError, setLoginError] = useState()
 
+  async function onSubmitForm(e) {
+    e.preventDefault()
+
+    axios.post('http://localhost:3001/system/authenticate', form)
+      .then(resp => {
+        setUser(resp.data)
+        localStorage.setItem("user", JSON.stringify(resp.data.user))
+        setLoginError("")
+      })
+      .catch((e) => {
+        setLoginError(e.response.data.error)
+      })
+  }
 
   function formChange(event) {
+    event.preventDefault()
+
     const { name, value } = event.target;
 
     setForm({ ...form, [name]: value })
@@ -28,7 +41,7 @@ const Login = ({
 
   return (
     <div className="loginFormContainer">
-      <form className="loginForm">
+      <form className="loginForm" onSubmit={onSubmitForm}>
         <h2 className="loginWindowTitle">Entrar</h2>
         <label htmlFor="signEmail"></label>
         <input
@@ -46,6 +59,9 @@ const Login = ({
           name="password"
           onChange={formChange}
         />
+        <div className="loginError">
+          {loginError}
+        </div>
         <button type="submit" >
           Entrar
         </button>

@@ -20,5 +20,5 @@ requireDir('./models');
 
 app.use('/system', require('./routes/routes'));
 app.listen(3001, () => {
-  console.log('Backend Executando...')
+  console.log('Backend Pronto...')
 });

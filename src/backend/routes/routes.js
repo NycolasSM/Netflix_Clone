@@ -14,16 +14,22 @@ routes.post('/authenticate', usersController.authenticate)
 
 routes.get('/users', usersController.getAllUsers);
 
-routes.get('/users/:id', usersController.getUser);
+routes.get('/user/:id', usersController.getUser);
 
 routes.put('/users/:id', usersController.updateUser);
 
 routes.delete('/users/:id', usersController.deleteUser);
 
+routes.put('/addProfile', usersController.addProfile);
+
+routes.delete('/removeProfile', usersController.removeProfile);
+
+routes.delete('/removeAllProfiles', usersController.removeAllProfiles);
+
 
 // projectController
 
-routes.use(authMiddleware);
+// routes.use(authMiddleware);
 
 routes.get('/', projectController.test);
 

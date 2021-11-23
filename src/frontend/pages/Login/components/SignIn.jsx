@@ -17,8 +17,15 @@ const SignIn = ({
     profiles: [],
   })
 
+  const [signError, setSignError] = useState()
+
+  function clearFormFields(e) {
+    console.log(e)
+  }
+
+
   function onSubmitForm(event) {
-    // event.preventDefault();
+    event.preventDefault();
 
     let userNameIsSet = false
     let passwordConfirm = false
@@ -72,10 +79,14 @@ const SignIn = ({
 
     if (passwordConfirm === true && userNameIsSet === true && emailIsSet === true) {
       axios.post("http://localhost:3001/system/users/", form)
-        .catch(err => {
-          console.log(err)
-        })
-        .then(refreshPage())
+      .then(resp => {
+        loginOrSiginChange()
+        refreshPage()
+        setSignError("")
+      })
+      .catch((e) => {
+        setSignError(e.response.data.error)
+      })
     }
   }
 
@@ -127,6 +138,9 @@ const SignIn = ({
           name="confirmPassword"
           onChange={formChange}
         />
+        <div className="signError">
+          {signError}
+        </div>
         <button type="submit" >
           Registrar
         </button>
