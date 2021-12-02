@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const User = mongoose.model('User');
-const bcrypt = require('bcryptjs')
-const jwt = require('jsonwebtoken')
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 
 const ObjectId = require('mongodb').ObjectId;
 
@@ -27,13 +27,10 @@ module.exports = {
 
       user.password = undefined;
 
-      return res.send({
-        user,
-        token: generateToken({ id: user.id })
-      })
+      return res.status(201).send({ message: 'Usuário Criado' });
 
     } catch (err) {
-      return res.status(400).send({ error: 'Unexpected error on register' })
+      return res.status(500).send({ error: 'Unexpected error on register' });
     }
 
   },
@@ -41,10 +38,7 @@ module.exports = {
   async authenticate(req, res) {
     const { email, password } = req.body;
 
-    console.log(req.body)
-
     const user = await User.findOne({ email }).select('+password');
-
 
       if (!user)
         return res.status(400).send({ error: "Usuário não encontrado" });
@@ -145,3 +139,24 @@ module.exports = {
   //   ])
   // }
 }
+
+
+// async authenticate(req, res) {
+//   const { email, password } = req.body;
+
+//   const { password: userPassword, ...user } = await User.findOne({ email }).select('+password');
+
+//     if (!user)
+//       return res.status(400).send({ error: 'Usuário não encontrado' });
+
+//     if (!await bcrypt.compare(password, userPassword))
+//       return res.status(400).send({ error: 'Senha Inválida' });
+
+//     console.log(user)
+
+//     res.send({
+//       user,
+//       token: generateToken({ id: user.id })
+//     });
+
+// },

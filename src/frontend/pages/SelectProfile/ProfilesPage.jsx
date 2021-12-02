@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import './ProfilesPage.css'
 
-import SelectProfile from './components/SelectProfile/SelectProfile'
-import EditProfile from './components/EditProfile/EditProfile'
-import CreateProfile from './components/CreateProfile/CreateProfile'
+import { SelectProfile, EditProfile, CreateProfile } from './components/profiles'
+
+// import SelectProfile from './components/profiles/SelectProfile/SelectProfile'
+// import EditProfile from './components/EditProfile/EditProfile'
+// import CreateProfile from './components/profiles/CreateProfile/CreateProfile'
 
 const SelectProfilePage = () => {
 
@@ -22,13 +24,14 @@ const SelectProfilePage = () => {
       name: profileName,
       img: profileImg
     }
-    console.log(`perfil selecionado (${profileName}), link do ícone:${profileImg}`)
+    console.log(`perfil selecionado (${profileName})`)
   }
 
   const editProfile = (profileName, profileImg) => {
     const profileInfo = {
       name: profileName,
-      img: profileImg
+      img: profileImg,
+      profileIdForEdit: ""
     }
     setProfileSelectedInfoForEdit(profileInfo)
   }

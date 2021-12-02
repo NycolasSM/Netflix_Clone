@@ -1,10 +1,15 @@
 import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router';
 
 import axios from 'axios'
 import './Login.css'
+import { ContactSupportOutlined } from '@material-ui/icons'
+
+import { useUserInfo } from './../../../providers/userInfo'
 
 const Login = ({
-  loginOrSiginChange
+  loginOrSiginChange,
+  changePage
 }) => {
 
   const [form, setForm] = useState({
@@ -12,21 +17,40 @@ const Login = ({
     password: ""
   })
 
-  const [user, setUser] = useState()
+  const { user, setUser } = useUserInfo({
+
+  });
+
 
   const [loginError, setLoginError] = useState()
+
+  // const handleChangeProfile = (option) => {
+  //   changePage(option)
+  // }
+
+  const NavigateToPage = (page) => {
+    const navigate = useNavigate();
+    navigate(`/${page}`)
+  }
 
   async function onSubmitForm(e) {
     e.preventDefault()
 
     axios.post('http://localhost:3001/system/authenticate', form)
       .then(resp => {
-        setUser(resp.data)
-        localStorage.setItem("user", JSON.stringify(resp.data.user))
-        setLoginError("")
+
+        setUser({
+          id: resp.data.user._id,
+          token: resp.data.token
+        })
+
+        NavigateToPage("selectProfile")
+
+        // handleChangeProfile("SelectProfile")
       })
       .catch((e) => {
-        setLoginError(e.response.data.error)
+        console.log(e)
+        // setLoginError(e.response.data.error)
       })
   }
 

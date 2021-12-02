@@ -34,3 +34,11 @@
         "registerAt": "2021-11-12T18:48:06.589Z",
         "__v": 0
     },
+
+
+
+* Recoil
+* import 
+* Babel
+* mimificar o codigo
+* Babel minify

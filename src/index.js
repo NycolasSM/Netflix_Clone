@@ -2,16 +2,15 @@ import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-import Login from './frontend/pages/Login/LoginAndSignInForm'
-import SelectProfile from './frontend/pages/SelectProfile/ProfilesPage'
-import MoviesPage from './frontend/pages/Movies/MoviesPage.jsx'
 import { UserInfoProvider } from './frontend/providers/userInfo';
+
+import App from './frontend/pages/App'
 
 
 ReactDOM.render(
   <React.StrictMode>
     <UserInfoProvider>
-      <Login />
+      <App />
     </UserInfoProvider>
   </React.StrictMode>,
   document.getElementById('root')

@@ -3,11 +3,16 @@ import './EditProfile.css'
 
 import Edit from '@material-ui/icons/Edit'
 
+import { useUserInfo } from '../../../../../providers/userInfo'
+
+
 const EditProfile = ({
   profileName,
   profileImg,
   manageOption
 }) => {
+
+  const { user, setUser } = useUserInfo();
 
   const [form, setForm] = useState({
     name: "",
@@ -45,7 +50,7 @@ const EditProfile = ({
         <button className="editProfileButtonCancel" onClick={() => manageOption("selectProfile")}>
           Cancelar
         </button>
-        <button className="editProfileButtonDelete">
+        <button className="editProfileButtonDelete" onClick={() => console.log("delete profile")}>
           Excluir Perfil
         </button>
       </div>
