@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import axios from 'axios'
 import './SignIn.css'
 
@@ -6,8 +6,7 @@ const SignIn = ({
   loginOrSiginChange
 }) => {
 
-  // precisa fazer a verificação no backend
-
+  // TODO precisa fazer a verificação no backend
 
   const [form, setForm] = useState({
     email: "",
@@ -18,11 +17,6 @@ const SignIn = ({
   })
 
   const [signError, setSignError] = useState()
-
-  function clearFormFields(e) {
-    console.log(e)
-  }
-
 
   function onSubmitForm(event) {
     event.preventDefault();
@@ -144,9 +138,9 @@ const SignIn = ({
         <button type="submit" >
           Registrar
         </button>
-        <div className="registerNow">
+        <div className="goToLogin">
           <span>Ja tem uma conta?</span>
-          <a onClick={() => loginOrSiginChange()}>Entrar</a>
+          <span className="goToLoginButton" onClick={() => loginOrSiginChange()}>Entrar</span>
         </div>
         <div className="recaptchaInfo">
           <span> Esta página é protegida pelo Google reCAPTCHA para garantir que você não é um robô.</span>

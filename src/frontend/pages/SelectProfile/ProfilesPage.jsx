@@ -1,11 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import './ProfilesPage.css'
 
 import { SelectProfile, EditProfile, CreateProfile } from './components/profiles'
-
-// import SelectProfile from './components/profiles/SelectProfile/SelectProfile'
-// import EditProfile from './components/EditProfile/EditProfile'
-// import CreateProfile from './components/profiles/CreateProfile/CreateProfile'
 
 const SelectProfilePage = () => {
 
@@ -24,7 +20,7 @@ const SelectProfilePage = () => {
       name: profileName,
       img: profileImg
     }
-    console.log(`perfil selecionado (${profileName})`)
+    console.log(`perfil selecionado (${profileInfo.name})`)
   }
 
   const editProfile = (profileName, profileImg) => {
@@ -35,6 +31,8 @@ const SelectProfilePage = () => {
     }
     setProfileSelectedInfoForEdit(profileInfo)
   }
+
+  console.log(manageProfileOption)
 
   return (
     <section>
@@ -49,5 +47,7 @@ const SelectProfilePage = () => {
     </section>
   )
 }
+
+// TODO quando o campo manageProfileOption troca deveria chamar o selectProfile porém esta retornando ele vazio
 
 export default SelectProfilePage

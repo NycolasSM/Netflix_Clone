@@ -35,18 +35,21 @@
   width: 100%;
 }
 
-.registerNow {
+.goToLogin {
   margin-top: 18px;
   font-size: 15px;
   color: #999;
 }
 
-.loginNow a {
+.goToLoginButton {
+  padding-left: 4px;
   color: white;
   text-decoration: none;
   margin-left: 4px;
 }
 
-.loginNow a:hover {
+.goToLoginButton:hover {
+  cursor: pointer;
   text-decoration: underline;
+  margin-left: 4px;
 }

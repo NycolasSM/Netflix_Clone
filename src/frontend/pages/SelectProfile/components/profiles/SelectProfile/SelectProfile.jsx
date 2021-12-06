@@ -12,7 +12,7 @@ const SelectProfile = ({
   profileSelectedInfo
 }) => {
 
-  const { user, setUser } = useUserInfo();
+  const { user } = useUserInfo();
 
   const [userProfiles, setUserProfiles] = useState([])
   const [isEmptyProfile, setIsEmptyProfile] = useState(false)
@@ -20,7 +20,6 @@ const SelectProfile = ({
 
   const [showElementAnim, setShowElmentAnim] = useState("")
   const [isSelectingProfileForEdit, setIsSelectingProfileForEdit] = useState(false)
-
 
   const getProfilesByUserId = (userId) => {
     axios.get(`http://localhost:3001/system/user/${userId}`)
@@ -42,18 +41,16 @@ const SelectProfile = ({
 
   useEffect(() => {
 
-    const isUserAuthenticated = user.id != ""
+    const isUserAuthenticated = user.id !== ""
 
-    // get the profiles
     if (isUserAuthenticated) {
       getProfilesByUserId(user.id)
 
     } else {
 
-      // if user is Not Logged
       setIsLogged(false)
     }
-  }, [])
+  }, [user.id])
 
   const setManageOption = (option) => {
     manageOption(option)

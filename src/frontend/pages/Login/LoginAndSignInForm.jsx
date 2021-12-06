@@ -1,12 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import './LoginAndSignInForm.css'
 
 import Login from './components/Login.jsx'
 import SignIn from './components/SignIn.jsx'
 
-const LoginAndSiginInForm = ({
-  changePage
-}) => {
+const LoginAndSiginInForm = () => {
 
   const [changeFormAnimValue, setChangeFormAnimValue] = useState(200)
 
@@ -18,10 +16,6 @@ const LoginAndSiginInForm = ({
     setChangeFormAnimValue(-200)
   }
 
-  const asdchangePage = (option) => {
-  }
-
-
   return (
     <section className="loginAndSignInForm">
       <img className="backgroundLoginImg" src="https://pipocasclub.com.br/wp-content/uploads/2019/10/netflix-3.jpg" alt="" />
@@ -31,7 +25,7 @@ const LoginAndSiginInForm = ({
       <div className="loginWindowContainer">
         <section className="loginWindow">
           <div className="loginWindowItems" style={{ transform: `translateX(${changeFormAnimValue}px)` }} >
-            <Login loginOrSiginChange={setOptionSign} changePage={changePage}/>
+            <Login loginOrSiginChange={setOptionSign} />
             <SignIn loginOrSiginChange={setOptionLogin} />
           </div>
         </section>

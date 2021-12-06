@@ -1,15 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router';
 
 import axios from 'axios'
 import './Login.css'
-import { ContactSupportOutlined } from '@material-ui/icons'
 
 import { useUserInfo } from './../../../providers/userInfo'
 
 const Login = ({
-  loginOrSiginChange,
-  changePage
+  loginOrSiginChange
 }) => {
 
   const [form, setForm] = useState({
@@ -17,21 +15,13 @@ const Login = ({
     password: ""
   })
 
-  const { user, setUser } = useUserInfo({
+  const { setUser } = useUserInfo({
 
   });
 
-
   const [loginError, setLoginError] = useState()
 
-  // const handleChangeProfile = (option) => {
-  //   changePage(option)
-  // }
-
-  const NavigateToPage = (page) => {
-    const navigate = useNavigate();
-    navigate(`/${page}`)
-  }
+  const navigate = useNavigate();
 
   async function onSubmitForm(e) {
     e.preventDefault()
@@ -39,18 +29,21 @@ const Login = ({
     axios.post('http://localhost:3001/system/authenticate', form)
       .then(resp => {
 
+        const userInfoID = resp.data.user._id
+        const userInfoToken = resp.data.token
+
         setUser({
           id: resp.data.user._id,
           token: resp.data.token
         })
 
-        NavigateToPage("selectProfile")
+        localStorage.setItem("user",JSON.stringify({userInfoID: userInfoID, userInfoToken: userInfoToken}))
 
-        // handleChangeProfile("SelectProfile")
+        navigate(`/selectProfile`)
+
       })
       .catch((e) => {
-        console.log(e)
-        // setLoginError(e.response.data.error)
+        setLoginError(e.response.data.error)
       })
   }
 
@@ -103,9 +96,9 @@ const Login = ({
           <img className="facebookLogo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Facebook_logo_%28square%29.png/240px-Facebook_logo_%28square%29.png" alt="" />
           <span>Conectar com Facebook</span>
         </div>
-        <div className="registerNow">
+        <div className="goToRegister">
           <span>Novo por aqui?</span>
-          <a onClick={() => loginOrSiginChange()}>Assine agora</a>
+          <span className="goToRegisterButton" onClick={() => loginOrSiginChange()}>Assine agora</span>
         </div>
         <div className="recaptchaInfo">
           <span> Esta página é protegida pelo Google reCAPTCHA para garantir que você não é um robô.</span>

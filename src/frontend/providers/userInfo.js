@@ -4,10 +4,12 @@ export const UserInfoContext = React.createContext({});
 
 export const UserInfoProvider = (props) => {
   const [user, setUser] = useState({
-    id: "",
-    token: "",
-    profileIdForEdit: ""
+    id: JSON.parse(localStorage.getItem("user")).userInfoID,
+    token: JSON.parse(localStorage.getItem("user")).userInfoToken,
+    profileIdForEdit: JSON.parse(localStorage.getItem("user")).profileIdForEdit
   });
+
+  // id: JSON.parse(localStorage.getItem("user")).userInfoID || 123 ,
 
   return (
     <UserInfoContext.Provider value={{ user, setUser }}>

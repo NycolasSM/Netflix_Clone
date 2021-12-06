@@ -77,21 +77,23 @@
   height: 18px;
 }
 
-.registerNow {
-  margin-top: 16px;
+.goToRegister {
+  margin-top: 18px;
   font-size: 15px;
   color: #999;
 }
 
-.registerNow a {
+.goToRegisterButton {
+  padding-left: 4px;
   color: white;
   text-decoration: none;
-  cursor: pointer;
   margin-left: 4px;
 }
 
-.registerNow a:hover {
+.goToRegisterButton:hover {
+  cursor: pointer;
   text-decoration: underline;
+  margin-left: 4px;
 }
 
 .recaptchaInfo {
