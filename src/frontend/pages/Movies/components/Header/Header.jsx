@@ -12,7 +12,7 @@ const Header = ({
         </a>
       </div>
       <div className="headerUser">
-        <a href="/">
+        <a href="/selectProfile">
           <img src="https://pbs.twimg.com/profile_images/1240119990411550720/hBEe3tdn_400x400.png" alt="Usuário" />
         </a>
       </div>

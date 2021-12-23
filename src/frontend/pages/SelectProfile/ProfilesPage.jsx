@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router';
 import './ProfilesPage.css'
 
 import { SelectProfile, EditProfile, CreateProfile } from './components/profiles'
@@ -21,7 +22,10 @@ const SelectProfilePage = () => {
       img: profileImg
     }
     console.log(`perfil selecionado (${profileInfo.name})`)
+    navigate(`/moviesList`)
   }
+
+  const navigate = useNavigate();
 
   const editProfile = (profileName, profileImg) => {
     const profileInfo = {
@@ -33,6 +37,7 @@ const SelectProfilePage = () => {
   }
 
   console.log(manageProfileOption)
+
 
   return (
     <section>

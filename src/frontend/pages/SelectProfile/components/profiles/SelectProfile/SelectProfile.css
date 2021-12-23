@@ -42,13 +42,9 @@
   flex: row;
   flex-wrap: wrap;
   opacity: 0;
-  transform: scale(110%);
   transition: all ease 0.6s;
-}
 
-.selectProfileContainer.ShowAnim{
-  transform: scale(100%);
-  opacity: 100;
+  animation: showAnim 1.2s forwards;
 }
 
 .manageProfiles {
@@ -76,4 +72,18 @@
   .manageProfiles {
     font-size: 12px
   }
+}
+
+@keyframes showAnim {
+
+  0% {
+    transform: scale(110%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(100%);
+    opacity: 100;
+  }
+
 }

@@ -18,7 +18,7 @@ const SelectProfile = ({
   const [isEmptyProfile, setIsEmptyProfile] = useState(false)
   const [isLogged, setIsLogged] = useState(true)
 
-  const [showElementAnim, setShowElmentAnim] = useState("")
+
   const [isSelectingProfileForEdit, setIsSelectingProfileForEdit] = useState(false)
 
   const getProfilesByUserId = (userId) => {
@@ -29,14 +29,11 @@ const SelectProfile = ({
         if (resp.data.profiles.length === 0) {
           setIsEmptyProfile(false)
         }
-
-        // animation of the screen
-        setShowElmentAnim("ShowAnim")
-
       })
       .catch(err => {
         console.log(err)
       })
+      
   }
 
   useEffect(() => {
@@ -81,7 +78,7 @@ const SelectProfile = ({
 
         :
 
-        <div className={`selectProfileContainer ${showElementAnim}`}>
+        <div className="selectProfileContainer">
           <div className="profileCardsListContainer">
             <div className="selectProfileTitle" >{isSelectingProfileForEdit === true ? "Qual perfil deseja editar?" : "Quem esta assistindo?"}</div>
             <div className="profileCardsList">
