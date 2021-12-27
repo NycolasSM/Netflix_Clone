@@ -16,6 +16,19 @@ recentes e informações detalhadas deles</p>
 <br>
 <hr>
 <br>
+<h2>Como Testar</h2>
+<ul>
+  <h2>comandos</h2>
+  <p>No repositório raiz do projeto execute os seguintes comanods</p>
+  <li>npm run server</li>
+  <p>antes de executar este comando inicie o mongodb usando o comando no terminar mongod</p>
+  <p>o comando run server ira executar o servidor na porta 3001 usando o banco de dados mongodb</p>
+  <li>npm start</li>
+  <p>ira iniciar o projeto usando a porta padrão 3000</p>
+</ul>
+<br>
+<hr>
+<br>
 <h2>Tecnologias Utilizadas</h2>
 <ul>
   <h2>FrontEnd</h2>
