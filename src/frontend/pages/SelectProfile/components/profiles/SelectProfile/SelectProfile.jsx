@@ -33,6 +33,8 @@ const SelectProfile = ({
       .catch(err => {
         console.log(err)
       })
+
+      console.log("fez o get")
       
   }
 
@@ -69,6 +71,9 @@ const SelectProfile = ({
 
   // if user is not logged
   const isNotLogged = <div className="isNotLogged" style={{ fontSize: "2em", color: "white" }}>Voce Não está Logado</div>
+
+  console.log(isLogged)
+  console.log(userProfiles)
 
   return (
     <section id="profiles" className="selectProfile">
